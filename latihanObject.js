@@ -86,3 +86,42 @@ function hitungTotalNilai(rapor) {
 
 const nilaiRapor = { matematika: 80, fisika: 75, kimia: 85 };
 console.log(hitungTotalNilai(nilaiRapor));
+
+console.log('soal no 7');
+const user = [
+    {id: 1, nama: 'ana'},
+    {id: 2, nama: 'ani'},
+    {id: 3, nama: 'ina'}
+];
+
+function cariUserID(daftarUser, id) {
+    return daftarUser.find(user => user.id === id);
+};
+
+console.log(cariUserID(user, 3));
+
+console.log('soal no 8');
+const kurs = { USD: 15000, EUR: 16500, SGD: 11000 };
+
+function ubahArray2D(dataKurs) {
+    return Object.entries(dataKurs);
+};
+
+console.log(ubahArray2D(kurs));
+
+console.log('soal no 9');
+const gudang = [
+  { nama: "Buku", stok: 10 },
+  { nama: "Pensil", stok: 2 },
+  { nama: "Penggaris", stok: 12 },
+  { nama: "Penghapus", stok: 3 }
+];
+
+function cekStokKritis(daftarBarang) {
+    const hasilSaring = daftarBarang.filter(barang => barang.stok < 5);
+    const ambilBarang = hasilSaring.map(barang => barang.nama);
+
+    return ambilBarang;
+};
+
+console.log(cekStokKritis(gudang));
