@@ -28,30 +28,46 @@
 
 // ambilDataAman().then(console.log);
 
-console.log('soal no 4');
-async function ambilSemuaPostingan() {
+// console.log('soal no 4');
+// async function ambilSemuaPostingan() {
+//     try {
+//         const response = await fetch('https://typicode.com');
+//         const data = await response.json();
+//         return data;
+//     } catch (error) {
+//         console.error('Gagal memuat data: ', error);
+//     }
+// };
+
+// ambilSemuaPostingan().then(data => console.log(data.slice(0, 2)));
+
+// console.log('soal no 5');
+// async function ambilUserPostinganSatu() {
+//     try {
+//         const response = await fetch('https://typicode.com');
+//         const semuaPost = await response.json();
+//         const hasilSaring = semuaPost.filter((post) => post.userId === 1);
+
+//         return hasilSaring;
+//     } catch (error) {
+//         console.error('Gagal memuat data: ', error);
+//     }
+// };
+
+// ambilUserPostinganSatu().then(data => console.log(data.slice(0, 2)));
+
+console.log('soal no 6');
+async function publicApi() {
     try {
-        const response = await fetch('https://typicode.com');
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts/2');
         const data = await response.json();
-        return data;
+        const newObject = data.map( noId: data.userId, deskripsi: data.title
+        );
+
+        return newObject;
     } catch (error) {
         console.error('Gagal memuat data: ', error);
     }
 };
 
-ambilSemuaPostingan().then(data => console.log(data.slice(0, 2)));
-
-console.log('soal no 5');
-async function ambilUserPostinganSatu() {
-    try {
-        const response = await fetch('https://typicode.com');
-        const semuaPost = await response.json();
-        const hasilSaring = semuaPost.filter((post) => post.userId === 1);
-
-        return hasilSaring;
-    } catch (error) {
-        console.error('Gagal memuat data: ', error);
-    }
-};
-
-ambilUserPostinganSatu().then(data => console.log(data.slice(0, 2)));
+publicApi().then(console.log);
