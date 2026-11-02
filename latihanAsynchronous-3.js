@@ -59,15 +59,31 @@
 console.log('soal no 6');
 async function publicApi() {
     try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts/2');
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
         const data = await response.json();
-        const newObject = data.map( noId: data.userId, deskripsi: data.title
-        );
+        const daftarUser = data.map(item => ({
+            noId: item.userId,
+            deskripsi: item.title
+        }));
 
-        return newObject;
+        return daftarUser;
     } catch (error) {
         console.error('Gagal memuat data: ', error);
     }
 };
 
 publicApi().then(console.log);
+
+console.log('soal no 7');
+async function ambilUniversitasNegara(negara) {
+    try {
+        const response = await fetch(`http://universities.hipolabs.com/search?country=${encodeURIComponent(negara)}`);
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.error('Gagal memuat data: ', error);
+    }
+};
+
+ambilUniversitasNegara('indonesia').then(console.log);
